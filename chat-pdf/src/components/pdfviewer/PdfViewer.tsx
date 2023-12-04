@@ -1,7 +1,12 @@
-import { Icon, MinimalButton, Position, Tooltip, Viewer } from '@react-pdf-viewer/core';
+import {Icon, 
+    MinimalButton, 
+    Position, 
+    Tooltip, 
+    Viewer,} from '@react-pdf-viewer/core';
 import { Worker } from '@react-pdf-viewer/core';
-import { toolbarPlugin } from '@react-pdf-viewer/toolbar';
+
 import * as React from 'react';
+import  { useContext } from 'react';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/bookmark/lib/styles/index.css';
 import '@react-pdf-viewer/open/lib/styles/index.css';
@@ -10,16 +15,52 @@ import { openPlugin } from '@react-pdf-viewer/open';
 
 import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 
-// Import styles
 import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
+import { PdfContext } from '../../context/context.js'; 
+
 const TOOLTIP_OFFSET = { left: 8, top: 0 };
-function PdfViewerWithUploadBtn(){
+
+
+const PdfViewerWithUploadBtn = () => {
+    const { myString, updateMyString,updateVectorDatabase } = useContext(PdfContext);
+    const handleDocumentLoad = async (e) => {
+        // const myContext = useContext(PdfContext);
+        
+        let numPages = e.doc.numPages;
+        let docs =  [];
+        let pdf = e.doc;
+        let pagePromises = [];
+        for (let j = 1; j <= numPages; j++) {
+            const pagePromise = pdf.getPage(j).then(function(page) {
+                // get the first page
+                return page.getTextContent();
+            }).then(function(textContent) {
+                // textContent 是包含页面文本内容的一个对象
+                // 它包含一个包含各个文本项的数组，每个文本项表示页面上的一段文本
+                // 我们可以拼凑这些项来得到整个页面的文本
+            
+                let textItems = textContent.items;
+                let pageText = textItems.map(item => item.str).join(" "); 
+                // docs+=pageText;
+                docs[j-1] = pageText;
+            
+            }).catch(function(error) {
+                // 如果在获取页面或者页面文本内容的过程中出现错误，我们在这里处理
+                console.error("Error: " + error);
+            });
+            pagePromises.push(pagePromise);
+        }
+        await Promise.all(pagePromises);
+        let finalDocs = docs.join(" ");
+        console.log('--------')
+        updateMyString(finalDocs);
+        updateVectorDatabase(finalDocs)
+        // console.log(`${finalDocs}`); // 打印出整个页面的文本
+
+    };
     const [sidebarOpened, setSidebarOpened] = React.useState(false);
     const bookmarkPluginInstance = bookmarkPlugin();
-    
     const { Bookmarks } = bookmarkPluginInstance;
-    const toolbarPluginInstance = toolbarPlugin();
-    const { Toolbar } = toolbarPluginInstance;
     const pageNavigationPluginInstance = pageNavigationPlugin();
 
     const { CurrentPageInput, GoToFirstPageButton, GoToLastPageButton, GoToNextPageButton, GoToPreviousPage } =
@@ -27,6 +68,8 @@ function PdfViewerWithUploadBtn(){
 
     const openPluginInstance = openPlugin();
     const { OpenButton } = openPluginInstance;
+
+    let docs =''
     return (
         
         <div
@@ -111,13 +154,17 @@ function PdfViewerWithUploadBtn(){
                     }}
                 >
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/legacy/build/pdf.worker.js">
-                        <Viewer fileUrl="test.pdf" plugins={[openPluginInstance,pageNavigationPluginInstance,bookmarkPluginInstance]} />
+                        <Viewer fileUrl="test.pdf" 
+                                plugins={[openPluginInstance,
+                                        pageNavigationPluginInstance,
+                                        bookmarkPluginInstance]} 
+                                onDocumentLoad={handleDocumentLoad}/>
                     </Worker>
         
                 </div>
         </div>
     </div>
     );
-};
+}
 
 export default PdfViewerWithUploadBtn;
