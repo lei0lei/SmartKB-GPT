@@ -4,7 +4,7 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js';
 
-const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'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'});
+const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'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'});
 const memory = new BufferMemory({
   memoryKey: "chat_history",
   returnMessages: true,

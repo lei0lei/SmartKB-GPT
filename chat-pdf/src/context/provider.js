@@ -37,7 +37,7 @@ export class PdfProvider extends React.Component {
         // const splitDocs =   await textSplitter.splitDocuments(texts);
         let embeddings=null;
         try{
-          embeddings = new OpenAIEmbeddings({openAIApiKey:'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'});
+          embeddings = new OpenAIEmbeddings({openAIApiKey:'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'});
         } catch(err) {
           alert('Api key not available');
         }
