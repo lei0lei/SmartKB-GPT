@@ -24,7 +24,7 @@ export class PdfProvider extends React.Component {
     updateMyString(newString) {
         this.setState({ myString: newString });
     }
-    
+
     async updateVectorDatabase(newString) {
         // console.log(newString)
         const textSplitter = new RecursiveCharacterTextSplitter({
@@ -35,7 +35,12 @@ export class PdfProvider extends React.Component {
           new Document({ pageContent: newString }),
         ])
         // const splitDocs =   await textSplitter.splitDocuments(texts);
-        const embeddings = new OpenAIEmbeddings({openAIApiKey:'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'})
+        let embeddings=null;
+        try{
+          embeddings = new OpenAIEmbeddings({openAIApiKey:'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'});
+        } catch(err) {
+          alert('Api key not available');
+        }
         const vectorStore = await MemoryVectorStore.fromDocuments(splitDocs, embeddings);
         this.setState({ vectordb: vectorStore });
         // const relevantDocs =  await vectorStore.similaritySearch(
