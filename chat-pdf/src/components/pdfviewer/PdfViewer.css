@@ -1,0 +1,9 @@
+#element1 {display:inline-block;margin-right:1%; width:47%; background-color:rgb(57, 57, 66);vertical-align: middle;} 
+#element2 {display:inline-block; width:47%; background-color:rgb(66, 57, 57);vertical-align: middle;}
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+  height: 100%
+}
