@@ -39,7 +39,8 @@ export class PdfProvider extends React.Component {
         try{
           console.log('HHHHHHHHHHHH')
           console.log(process.env.openAIApiKey)
-          embeddings = new OpenAIEmbeddings({openAIApiKey:'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'});
+          let key = 'bO6IOqvTz7r23tix8XtjT3BlbkFJDGySUWL75Cy3Q8Qcd5oI'
+          embeddings = new OpenAIEmbeddings({openAIApiKey:'sk-'+key});
         } catch(err) {
           alert('Api key not available');
         }

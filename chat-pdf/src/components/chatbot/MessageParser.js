@@ -7,7 +7,8 @@ import { PdfContext } from '../../context/context.js';
 
 console.log('HHHHHHHHHHHH')
 console.log(process.env.openAIApiKey)
-const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'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'});
+let key = 'bO6IOqvTz7r23tix8XtjT3BlbkFJDGySUWL75Cy3Q8Qcd5oI'
+const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'sk-'+key});
 const memory = new BufferMemory({
   memoryKey: "chat_history",
   returnMessages: true,
