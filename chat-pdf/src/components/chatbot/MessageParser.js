@@ -4,6 +4,9 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js';
 
+
+console.log('HHHHHHHHHHHH')
+console.log(process.env.openAIApiKey)
 const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'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'});
 const memory = new BufferMemory({
   memoryKey: "chat_history",
