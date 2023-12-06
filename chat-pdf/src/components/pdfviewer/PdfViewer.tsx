@@ -82,7 +82,17 @@ const PdfViewerWithUploadBtn = () => {
                 width: '100%',
                 
             }}
-        >
+        ><div style={{
+            backgroundColor: '#357edd',
+            border: 'none',
+            borderRadius: '4px',
+            color: '#ffffff',
+            cursor: 'pointer',
+            padding: '8px',
+            position: 'relative',
+        }}>
+            <OpenButton />
+            </div>
             <div
                 style={{
                     alignItems: 'center',
@@ -113,7 +123,7 @@ const PdfViewerWithUploadBtn = () => {
                     </div>
                 
                 
-                <OpenButton />
+                
                 <div style={{ padding: '0px 2px' }}>
                     <GoToFirstPageButton />
                 </div>
