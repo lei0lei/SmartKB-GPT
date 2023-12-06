@@ -1,5 +1,5 @@
 #element1 {display:inline-block;margin-right:10px; width:600px; background-color:rgb(66, 57, 57);vertical-align: middle;} 
-#element2 {display:inline-block; width:300px; background-color:rgb(66, 57, 57);vertical-align: middle;}
+#element2 {display:inline-block; width:500px; background-color:rgb(66, 57, 57);vertical-align: middle;}
 .parent {
   border: 1px solid black;
   margin: 1rem;
