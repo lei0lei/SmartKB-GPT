@@ -1,2 +1,8 @@
-#element1 {display:inline-block;margin-right:10px; width:600px; background-color:rgb(66, 57, 57);} 
-#element2 {display:inline-block; width:300px; background-color:rgb(66, 57, 57);}
+#element1 {display:inline-block;margin-right:10px; width:600px; background-color:rgb(66, 57, 57);vertical-align: middle;} 
+#element2 {display:inline-block; width:300px; background-color:rgb(66, 57, 57);vertical-align: middle;}
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}

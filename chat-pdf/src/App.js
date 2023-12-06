@@ -18,14 +18,14 @@ function App() {
       </div>
       
        <PdfProvider>
-      
+        <div className= 'parent'>
         <div id = "element1">
          <PdfViewerWithUploadBtn />
          </div>
          <div id = "element2">
          <MyChatbot />
          </div>
-         
+         </div>
        </PdfProvider>
        
     </>
