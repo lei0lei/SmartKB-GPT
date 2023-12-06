@@ -50,7 +50,7 @@ export class PdfProvider extends React.Component {
         // console.log(relevantDocs); // "Hello!"
       
     }
-  
+    
     render() {
       return (
         <PdfContext.Provider value={this.state}>

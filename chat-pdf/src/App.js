@@ -1,47 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+
 import {MyChatbot} from './components/chatbot/Chatbot.js'
 import 'react-chatbot-kit/build/main.css'
-import Sidebar from './Sidebar.js';
+// import Sidebar from './components/layout/Sidebar.js';
 import PdfViewerWithUploadBtn from './components/pdfviewer/PdfViewer.tsx'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
+import { Navigation } from './components/layout'
 import React from 'react';
-
+import './App.css'
 import { PdfProvider } from './context/provider.js';
 
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <div>
+      <Navigation />
+      </div>
       
-      <header className="App-header">
-        <Container>
-          <Row>
-            <Col>
-                <Sidebar />
-            </Col>
-            <Col  lg={10}>
-              <h1>Chat with pdf</h1>
-            </Col>
-          </Row>
-        </Container>
-      </header>
-      <PdfProvider>
-      <Container>
-        <Row>
-          <Col>
-              <PdfViewerWithUploadBtn />
-          </Col>
-          <Col md="auto">
-              <MyChatbot />
-          </Col>
-        </Row>
-      </Container>
-      </PdfProvider>
-    </div>
+       <PdfProvider>
+      
+        <div id = "element1">
+         <PdfViewerWithUploadBtn />
+         </div>
+         <div id = "element2">
+         <MyChatbot />
+         </div>
+         
+       </PdfProvider>
+       
+    </>
   );
 }
 
