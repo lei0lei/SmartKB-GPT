@@ -83,6 +83,7 @@ const PdfViewerWithUploadBtn = () => {
                     cursor: 'pointer',
                     padding: '8px',
                     width: '100%',
+                    height: '20px',
                     
             }}>
                 <OpenButton />
