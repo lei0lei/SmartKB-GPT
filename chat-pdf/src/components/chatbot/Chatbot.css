@@ -1,6 +1,6 @@
 
 .react-chatbot-kit-chat-container {
-    height: 700px !important;
+    min-height: 100vh !important;
     width: 100% !important;
 }
 

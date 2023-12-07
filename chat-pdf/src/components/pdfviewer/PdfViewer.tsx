@@ -102,7 +102,7 @@ const PdfViewerWithUploadBtn = () => {
                                 border: '1px solid rgba(0, 0, 0, 0.3)',
                                 display: 'flex',
                                 flexDirection: 'column',
-                                height: '700px',
+                                height: '100vh',
                                 width: '100%',
                                 
                             }}
