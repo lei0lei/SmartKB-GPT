@@ -180,7 +180,7 @@ const PdfViewerWithUploadBtn = () => {
                                     }}
                                 >
                                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/legacy/build/pdf.worker.js">
-                                        <Viewer fileUrl="test.pdf" 
+                                        <Viewer fileUrl="test.pdf"  
                                                 plugins={[openPluginInstance,
                                                         pageNavigationPluginInstance,
                                                         bookmarkPluginInstance]} 
