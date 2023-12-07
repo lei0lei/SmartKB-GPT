@@ -32,7 +32,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build --output public",
-    "build": "webpack --env production --env VERCEL_ENV=$VERCEL_ENV"
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
