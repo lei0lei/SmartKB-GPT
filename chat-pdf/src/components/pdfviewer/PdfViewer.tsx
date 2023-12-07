@@ -73,10 +73,7 @@ const PdfViewerWithUploadBtn = () => {
     let docs ='';
     return (
         <>
-        <div style={{position: 'absolute',
-   
-        left: '43%',
-    }}>
+        
             <div style={{
                     display: 'flexbox',
                     backgroundColor: '#357edd',
@@ -93,7 +90,7 @@ const PdfViewerWithUploadBtn = () => {
                 <OpenButton />
 
             </div>
-            </div>
+            
             <div className= 'parent'>
                 <div id = "element1">
                     <div
