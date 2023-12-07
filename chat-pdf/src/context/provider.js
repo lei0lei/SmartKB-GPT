@@ -28,8 +28,8 @@ export class PdfProvider extends React.Component {
     async updateVectorDatabase(newString) {
         // console.log(newString)
         const textSplitter = new RecursiveCharacterTextSplitter({
-          chunkSize: 500,
-          chunkOverlap: 0,
+          chunkSize: 1500,
+          chunkOverlap: 200,
         });
         const splitDocs = await textSplitter.splitDocuments([
           new Document({ pageContent: newString }),
