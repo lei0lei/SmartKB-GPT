@@ -5,8 +5,12 @@
 }
 
 .react-chatbot-kit-chat-inner-container {
-    min-height: 98vh !important;
+    min-height: 95vh !important;
 }
 .react-chatbot-kit-chat-message-container {
     min-height: 90vh !important;
+}
+.react-chatbot-kit-chat-input-container{
+    min-height: 5vh !important;
+
 }
