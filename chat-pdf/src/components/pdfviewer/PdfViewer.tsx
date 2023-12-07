@@ -158,6 +158,7 @@ const PdfViewerWithUploadBtn = () => {
                                 style={{
                                     display: 'flex',
                                     flex: 1,
+                                    height: '100vh' ,
                                     overflow: 'hidden',
                                 }}
                             >
