@@ -8,7 +8,10 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+env:
+  AZURE_WEBAPP_NAME: chat-with-pdf   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: './chat-pdf'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '20.x'                # set this to the node version to use
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -60,3 +63,4 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF24D32DE9F54284841C43EFF49DEB87 }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
