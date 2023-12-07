@@ -10,7 +10,7 @@ export const Navigation = () => {
       </div>
       <a
         className="flex items-center gap-2 px-4 py-2 text-black text-orange-400 bg-orange-700/20 rounded-xl"
-        href=""
+        href="https://github.com/lei0lei/SmartKB-GPT"
       >
         <FiGithub className="text-lg" />
         Source Code
