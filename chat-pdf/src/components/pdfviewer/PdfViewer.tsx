@@ -114,6 +114,7 @@ const PdfViewerWithUploadBtn = () => {
                                     borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
                                     display: 'flex',
                                     padding: '4px',
+                                    height: '100vh' ,
                                 }}
                         >
                                 <div style={{ marginRight: '0.25rem' }}>
