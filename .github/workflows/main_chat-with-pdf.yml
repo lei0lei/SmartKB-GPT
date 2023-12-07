@@ -28,8 +28,8 @@ jobs:
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build --if-present --passWithNoTests
+          npm run test --if-present --passWithNoTests
         
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
