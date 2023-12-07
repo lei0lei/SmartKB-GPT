@@ -1,5 +1,3 @@
-
-import {MyChatbot} from './components/chatbot/Chatbot.js'
 import 'react-chatbot-kit/build/main.css'
 // import Sidebar from './components/layout/Sidebar.js';
 import PdfViewerWithUploadBtn from './components/pdfviewer/PdfViewer.tsx'

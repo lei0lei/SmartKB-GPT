@@ -5,7 +5,7 @@ import { useClickAway } from 'react-use'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { BiHomeSmile, BiUser } from 'react-icons/bi'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
-import { FiSettings, FiShoppingCart } from 'react-icons/fi'
+import { FiSettings } from 'react-icons/fi'
 
 export  const Sidebar = () => {
   const [open, setOpen] = useState(false)

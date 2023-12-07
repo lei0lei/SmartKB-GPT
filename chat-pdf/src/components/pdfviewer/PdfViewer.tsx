@@ -26,7 +26,7 @@ interface CustomizeOpenButtonExampleProps {
 
 
 const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fileUrl }) => {
-    const { myString, updateMyString,updateVectorDatabase } = useContext(PdfContext);
+    const {  updateMyString,updateVectorDatabase } = useContext(PdfContext);
     const handleDocumentLoad = async (e) => {
         // const myContext = useContext(PdfContext);
         
