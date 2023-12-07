@@ -5,9 +5,6 @@ import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js';
 
 
-console.log('HHHHHHHHHHHH')
-console.log(process.env.openAIApiKey)
-let key = 'bO6IOqvTz7r23tix8XtjT3BlbkFJDGySUWL75Cy3Q8Qcd5oI'
 const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
 const memory = new BufferMemory({
   memoryKey: "chat_history",
