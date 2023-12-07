@@ -14,3 +14,8 @@
     min-height: 5vh !important;
 
 }
+
+.react-chatbot-kit-chat-bot-message{
+    width: 100%;
+    align-items: flex-start;
+}
