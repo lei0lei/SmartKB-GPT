@@ -16,5 +16,5 @@
 }
 
 .react-chatbot-kit-chat-bot-message{
-    width: 100%;
+    width: 100% !important;
 }
