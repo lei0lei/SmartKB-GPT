@@ -30,8 +30,8 @@ jobs:
         cache: 'npm'
 
     - name: npm install, build, and test
+      working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
       run: |
-        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         npm install
         npm run build --if-present
         
