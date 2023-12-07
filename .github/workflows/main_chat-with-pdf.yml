@@ -61,6 +61,6 @@ jobs:
         with:
           app-name: 'chat-with-pdf'
           slot-name: 'Production'
-          package: .
+          
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF24D32DE9F54284841C43EFF49DEB87 }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
