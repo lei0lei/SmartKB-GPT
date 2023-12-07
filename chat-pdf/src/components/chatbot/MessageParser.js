@@ -4,8 +4,16 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js';
 
+let model = null
 
-const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
+try{
+          
+  model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
+} catch(err) {
+  alert('Api key not available');
+  model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'none'});
+}
+// const model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
 const memory = new BufferMemory({
   memoryKey: "chat_history",
   returnMessages: true,

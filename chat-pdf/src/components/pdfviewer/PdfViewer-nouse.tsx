@@ -20,12 +20,9 @@ import { PdfContext } from '../../context/context.js';
 import {MyChatbot} from '../chatbot/Chatbot.js'
 import './PdfViewer.css'
 const TOOLTIP_OFFSET = { left: 8, top: 0 };
-interface CustomizeOpenButtonExampleProps {
-    fileUrl: string;
-}
 
 
-const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fileUrl }) => {
+const PdfViewerWithUploadBtn = () => {
     const { myString, updateMyString,updateVectorDatabase } = useContext(PdfContext);
     const handleDocumentLoad = async (e) => {
         // const myContext = useContext(PdfContext);
@@ -71,8 +68,9 @@ const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fil
     pageNavigationPluginInstance;
 
     const openPluginInstance = openPlugin();
-    const { Open } = openPluginInstance;
+    const { OpenButton } = openPluginInstance;
 
+    let docs ='';
     return (
         <>
         <div style={{
@@ -93,41 +91,10 @@ const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fil
                     
                     
             }}>
-                <Open>
-                     {(props: RenderOpenProps) => (
-                         <div
-                             style={{
-                                backgroundColor: '#357edd',
-                                border: 'none',
-                                borderRadius: '4px',
-                                color: '#ffffff',
-                                cursor: 'pointer',
-                                padding: '8px',
-                                position: 'relative',
-                                textAlign: 'center',
-                            }}
-                        >
-                            <input
-                                type="file"
-                                onChange={(e) => props.onClick(e)}
-                                style={{
-                                    bottom: 0,
-                                    cursor: 'pointer',
-                                    height: '100%',
-                                    left: 0,
-                                    opacity: 0,
-                                    position: 'absolute',
-                                    right: 0,
-                                    top: 0,
-                                    width: '100%',
-                                }}
-                            />
-                            加载PDF文件
-                        </div>
-                    )}
-                </Open>
+                <OpenButton />
+
             </div>
-            
+            </div>
             <div className= 'parent'>
                 <div id = "element1">
                     <div
@@ -231,7 +198,7 @@ const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fil
                         
                 </div>
             </div>
-        </div>
+            
         </>
     );
 }
