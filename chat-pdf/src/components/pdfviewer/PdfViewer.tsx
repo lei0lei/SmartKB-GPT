@@ -159,6 +159,7 @@ const PdfViewerWithUploadBtn = () => {
                                     display: 'flex',
                                     flex: 1,
                                     overflow: 'hidden',
+                                    height: '100vh',
                                 }}
                             >
                                 <div
@@ -175,6 +176,7 @@ const PdfViewerWithUploadBtn = () => {
                                     style={{
                                         flex: 1,
                                         overflow: 'hidden',
+                                        height: '100vh',
                                     }}
                                 >
                                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/legacy/build/pdf.worker.js">
