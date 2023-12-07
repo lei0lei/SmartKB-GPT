@@ -21,25 +21,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
 
-    - name: npm install, build, and test
-      working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-      run: |
-        npm install
-        npm run build --if-present
-        
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
-      with:
-        name: node-app
-        path: .
+      - name: npm install, build, and test
+        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        run: |
+          npm install
+          npm run build --if-present
+          
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: node-app
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
