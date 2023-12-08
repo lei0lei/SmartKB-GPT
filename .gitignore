@@ -1,3 +1,7 @@
+# unwanted github actions
+.github/workflows/deploy_to_azure.yaml
+.github/workflows/main_chat-with-pdf.yaml
+
 # Logs
 logs
 *.log
