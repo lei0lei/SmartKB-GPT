@@ -7,6 +7,7 @@ export const Navigation = () => {
       <div className="flex items-center gap-3">
         <Sidebar />
         <p>Chat with pdf</p>
+        <p>You are on test page</p>
       </div>
       {/* <a
         className="flex items-center gap-2 px-4 py-2 text-black text-orange-400 bg-orange-700/20 rounded-xl"
