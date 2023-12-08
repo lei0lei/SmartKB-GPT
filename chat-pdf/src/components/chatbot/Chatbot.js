@@ -21,6 +21,7 @@ export const MyChatbot = () => {
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
+        placeholderText='在此输入问题'
       />
     </div>
     </>

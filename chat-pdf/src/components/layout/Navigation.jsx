@@ -8,13 +8,13 @@ export const Navigation = () => {
         <Sidebar />
         <p>Chat with pdf</p>
       </div>
-      <a
+      {/* <a
         className="flex items-center gap-2 px-4 py-2 text-black text-orange-400 bg-orange-700/20 rounded-xl"
         href="https://github.com/lei0lei/SmartKB-GPT"
       >
         <FiGithub className="text-lg" />
         Source Code
-      </a>
+      </a> */}
     </nav>
   )
 }
