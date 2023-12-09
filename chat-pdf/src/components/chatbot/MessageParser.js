@@ -13,7 +13,7 @@ try{
     handleLLMNewToken(token) {
         streamedResponse += token;
         
-    },}],streaming: true,openAIApiKey:'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'});
+    },}],streaming: true,openAIApiKey:process.env.REACT_APP_openAIApiKey});
   
 } catch(err) {
   alert('Api key not available');
