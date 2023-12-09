@@ -1,14 +1,20 @@
 import { ConversationalRetrievalQAChain } from "langchain/chains";
+import React, { useRef, useEffect, useContext } from 'react';
 import { BufferMemory } from "langchain/memory";
 import { ChatOpenAI } from "langchain/chat_models/openai";
-import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js';
 
 let model = null
-
+let streamedResponse = "";
 try{
           
-  model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
+  // model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:process.env.REACT_APP_openAIApiKey});
+  model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,callbacks: [{
+    handleLLMNewToken(token) {
+        streamedResponse += token;
+        
+    },}],streaming: true,openAIApiKey:'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'});
+  
 } catch(err) {
   alert('Api key not available');
   model = new ChatOpenAI({ modelName: "gpt-3.5-turbo" ,openAIApiKey:'none'});
@@ -21,8 +27,9 @@ const memory = new BufferMemory({
 
 const MessageParser = ({ children, actions }) => {
   const context = useContext(PdfContext);
-  console.log(context)
+  
   const parse = async (message) => {
+    
     const chain = ConversationalRetrievalQAChain.fromLLM(
       model,
       context.vectordb.asRetriever(),
@@ -33,7 +40,7 @@ const MessageParser = ({ children, actions }) => {
     const result = await chain.call({
       question: message,
     });
-    console.log(result);
+    console.log({ streamedResponse });
     actions.handleResponse(result.text);
     
   };

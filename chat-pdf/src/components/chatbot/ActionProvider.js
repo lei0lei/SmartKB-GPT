@@ -2,6 +2,10 @@
 import React from 'react';
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
+  // this.state = {
+  //   messages: [],
+  //   streamingMessage: createChatBotMessage(""),
+  // };
   const handleResponse = (strResponse) => {
 
     const botMessage = createChatBotMessage(strResponse);

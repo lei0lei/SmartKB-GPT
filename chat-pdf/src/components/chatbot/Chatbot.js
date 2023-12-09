@@ -9,7 +9,7 @@ import { PdfContext } from '../../context/context.js'; // 你需要导入你的 
 
 export const MyChatbot = () => {
   const context = useContext(PdfContext);
-  console.log(context.myString)
+  
 
 
   // GPT调用逻辑

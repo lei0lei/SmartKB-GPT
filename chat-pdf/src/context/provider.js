@@ -10,18 +10,39 @@ export class PdfProvider extends React.Component {
       super(props);
       
       // 初始化并绑定 updateMyString 函数
-      this.updateMyString = this.updateMyString.bind(this);
+      this.updateDocs = this.updateDocs.bind(this);
       this.updateVectorDatabase = this.updateVectorDatabase.bind(this)
+      this.updateFileList = this.updateFileList.bind(this);
+      this.updateFileObjs = this.updateFileObjs.bind(this);
+      this.updateCurrentShowFile = this.updateCurrentShowFile.bind(this);
+      this.updateCurrentShowFileObj = this.updateCurrentShowFileObj.bind(this);
+
       // 将 updateMyString 方法和 myString 存在状态中
       this.state = {
         vectordb:'',
-        myString: '',
-        updateMyString: this.updateMyString,
-        updateVectorDatabase: this.updateVectorDatabase
+        docs: '',
+        updateDocs: this.updateDocs,
+        updateVectorDatabase: this.updateVectorDatabase,
+
+        fileList: '',
+        fileObjs:'',
+        updateFileList:this.updateFileList,
+        updateFileObjs:this.updateFileObjs,
+
+        currentShowFile:'',
+        currentShowFileObj:'',
+        updateCurrentShowFile:this.updateCurrentShowFile,
+        updateCurrentShowFileObj:this.updateCurrentShowFileObj,
+
       };
     }
   
-    updateMyString(newString) {
+    updateFileList(files){this.setState({fileList:files})}
+    updateFileObjs(files){this.setState({fileObjs:files})}
+    updateCurrentShowFile(file){this.setState({currentShowFile:file})}
+    updateCurrentShowFileObj(file){this.setState({currentShowFileObj:file})}
+
+    updateDocs(newString) {
         this.setState({ myString: newString });
     }
 
@@ -37,7 +58,9 @@ export class PdfProvider extends React.Component {
         // const splitDocs =   await textSplitter.splitDocuments(texts);
         let embeddings=null;
         try{
-          embeddings = new OpenAIEmbeddings({openAIApiKey:process.env.REACT_APP_openAIApiKey});
+          // embeddings = new OpenAIEmbeddings({openAIApiKey:process.env.REACT_APP_openAIApiKey});
+          
+          embeddings = new OpenAIEmbeddings({openAIApiKey:'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'});
           // console.log(process.env.REACT_APP_openAIApiKey)
         } catch(err) {
           alert('Api key not available');

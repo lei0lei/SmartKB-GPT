@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState ,useContext} from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useClickAway } from 'react-use'
@@ -6,11 +6,17 @@ import { AiOutlineRollback } from 'react-icons/ai'
 import { BiHomeSmile, BiUser } from 'react-icons/bi'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { FiSettings } from 'react-icons/fi'
-
+import { PdfContext } from '../../context/context.js';
 export  const Sidebar = () => {
+  const { currentShowFile,
+    updateCurrentShowFile,
+    updateCurrentShowFileObj,
+    fileList,
+    fileObjs} = useContext(PdfContext);
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
   useClickAway(ref, () => setOpen(false))
+
   const toggleSidebar = () => setOpen(prev => !prev)
 
   return (
@@ -64,6 +70,25 @@ export  const Sidebar = () => {
                     </li>
                   )
                 })}
+                {Array.isArray(fileList) && fileList.map((fileName, index) => (
+                              <li key={fileName}>
+                                <a
+                                href="#"
+                                  onClick={event => {
+                                    event.preventDefault();
+                                    updateCurrentShowFile(fileName);
+                                    let fileObj = fileObjs.find(item => item._fileName === fileName);
+                                    
+                                    updateCurrentShowFileObj(fileObj);
+                                  }}
+                                  className={`flex items-center justify-between gap-5 p-5 transition-all border-b-2 w-full ${
+                                    currentShowFile === fileName ? "bg-blue-400 text-white" : "hover:bg-blue-500 hover:text-white"
+                                  } border-zinc-800`}
+                                >
+                                  <motion.span {...framerText(index)}>{fileName}</motion.span>
+                                </a>
+                              </li>
+                            ))}
               </ul>
             </motion.div>
           </>
