@@ -1,5 +1,5 @@
 import { ConversationalRetrievalQAChain } from "langchain/chains";
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { BufferMemory } from "langchain/memory";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PdfContext } from '../../context/context.js';

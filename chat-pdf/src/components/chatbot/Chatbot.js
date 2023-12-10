@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import { PdfContext } from '../../context/context.js'; // 你需要导入你的 Context 对象
 
 export const MyChatbot = () => {
-  const context = useContext(PdfContext);
+  // const context = useContext(PdfContext);
   
 
 
