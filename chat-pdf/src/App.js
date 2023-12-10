@@ -6,20 +6,16 @@ import { Navigation } from './components/layout'
 import React from 'react';
 import './App.css'
 import { PdfProvider } from './context/provider.js';
-
+import PdfViewer from './components/pdfviewer/PdfViewerx.js'
 
 function App() {
   return (
     <>
-      <div>
-      <Navigation />
-      </div>
-      
-       <PdfProvider>
-        
-        
-         <PdfViewerWithUploadBtn />
-         
+      <PdfProvider>
+        <div>
+        <Navigation />
+        </div>
+        <PdfViewer />
        </PdfProvider>
        
     </>

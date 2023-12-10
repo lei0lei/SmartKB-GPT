@@ -26,7 +26,7 @@ interface CustomizeOpenButtonExampleProps {
 
 
 const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fileUrl }) => {
-    const {  updateMyString,updateVectorDatabase } = useContext(PdfContext);
+    const {  updateDocs,updateVectorDatabase } = useContext(PdfContext);
     const handleDocumentLoad = async (e) => {
         // const myContext = useContext(PdfContext);
         
@@ -57,7 +57,7 @@ const PdfViewerWithUploadBtn : React.FC<CustomizeOpenButtonExampleProps>= ({ fil
         await Promise.all(pagePromises);
         let finalDocs = docs.join(" ");
         console.log('--------')
-        updateMyString(finalDocs);
+        updateDocs(finalDocs);
         updateVectorDatabase(finalDocs)
         // console.log(`${finalDocs}`); // 打印出整个页面的文本
 
