@@ -5,6 +5,7 @@ import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PdfContext } from '../../context/context.js';
 
 let model = null
+
 let streamedResponse = "";
 try{
           
